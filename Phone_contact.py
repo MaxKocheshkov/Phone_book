@@ -11,9 +11,10 @@ class Contact:
 
     def __str__(self):
         return f' Имя: {self.name}\n Фамилия: {self.surname}\n Телефон: {self.phone_number}\n В избранных: ' \
-               f'{self.selected_contact}\n Дополнительная информация:\n \t telegram= ' \
-               f'{self.additionally.setdefault("telegram")}\n \t email= {self.additionally.setdefault("email")}'
+               f'{self.selected_contact}\n Дополнительная информация:\n \t\t telegram= ' \
+               f'{self.additionally.setdefault("telegram")}\n \t\t email= {self.additionally.setdefault("email")}'
 
 
-jhon = Contact('Jhon', 'Smith', '+71234567809', selected_contact=True, telegram='@jhony', email='jhony@smith.com')
-print(jhon)
+#TEST_START
+# jhon = Contact('Jhon', 'Smith', '+71234567809', selected_contact=True, telegram='@jhony', email='jhony@smith.com')
+# print(jhon)
