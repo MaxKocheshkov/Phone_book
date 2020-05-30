@@ -1,5 +1,3 @@
-
-
 class Contact:
 
     def __init__(self, name, surname, phone_number, selected_contact=False, **additionally):
@@ -15,6 +13,7 @@ class Contact:
                f'{self.additionally.setdefault("telegram")}\n \t\t email= {self.additionally.setdefault("email")}'
 
 
-#TEST_START
-# jhon = Contact('Jhon', 'Smith', '+71234567809', selected_contact=True, telegram='@jhony', email='jhony@smith.com')
-# print(jhon)
+if __name__ == '__main__':
+# TEST_START
+    jhon = Contact('Jhon', 'Smith', '+71234567809', selected_contact=True, telegram='@jhony', email='jhony@smith.com')
+    print(jhon)
