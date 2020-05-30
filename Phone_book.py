@@ -2,44 +2,50 @@ from Phone_contact import Contact
 
 book_dict = {}
 
+
 class PhoneBook:
 
     def __init__(self, name_book):
         self.name_book = name_book
-        self.contacts = {}
+        self.contacts = []
 
-    def add_contact(self, name: str, contact: Contact):
-        self.contacts[name] = contact
-        return self.contacts
-
-    def write_in_book(self, record_number):
-        self.record_number = record_number
-        book_dict.update({
-            self.record_number: list(self.contacts.values())
-                        })
+    def write_in_book(self, contact: Contact):
+        self.contact_dict = {
+            'Имя': contact.name,
+            'Фамилия': contact.surname,
+            'Номер телефона': contact.phone_number,
+            'В избранных': contact.selected_contact,
+            'Дополнительная информация': contact.additionally
+        }
+        self.contacts.append(self.contact_dict)
+        book_dict.update({self.name_book: self.contacts})
 
     def conclusion(self):
-        return f'{self.name_book}: {book_dict}'
+        return book_dict
 
     def del_for_number(self):
         user_del_number = int(input('Введите номер для удаления: '))
-        for number, record in book_dict.items():
-            if user_del_number in record:
-                book_dict.pop(number)
-                return f'{self.name_book}: {book_dict}'
+        for contacts_list in book_dict.values():
+            for self.contact_dict in contacts_list:
+                if user_del_number in self.contact_dict.values():
+                    contacts_list.remove(self.contact_dict)
+                    return f'{book_dict}'
 
     def selected_phone(self):
-        for selected_record in book_dict.values():
-            if 'да' in selected_record:
-                return selected_record
+        output_list = []
+        for contacts_list in book_dict.values():
+            selected_list = contacts_list.copy()
+            for self.contact_dict in selected_list:
+                if self.contact_dict['В избранных'] == 'да':
+                    dict_index = selected_list.index(self.contact_dict)
+                    output_list.append(selected_list.pop(dict_index))
+                    output_list.extend(output_list)
+                    return output_list
 
     def name_search(self):
         user_search_name = input('Введите имя для поиска: ')
         user_search_surname = input('Введите фамилию для поиска: ')
-        for find_name in book_dict.values():
-            if user_search_name in find_name and user_search_surname in find_name:
-                return find_name
-
-
-
-
+        for contacts_list in book_dict.values():
+            for self.contact_dict in contacts_list:
+                if user_search_name in self.contact_dict['Имя'] and user_search_surname in self.contact_dict['Фамилия']:
+                    return self.contact_dict

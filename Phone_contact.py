@@ -14,6 +14,6 @@ class Contact:
 
 
 if __name__ == '__main__':
-# TEST_START
+    # TEST_START
     jhon = Contact('Jhon', 'Smith', '+71234567809', selected_contact=True, telegram='@jhony', email='jhony@smith.com')
     print(jhon)
